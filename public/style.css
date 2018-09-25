@@ -33,9 +33,9 @@ main{
 }
 
 .todo-ui {
-    border: 1px solid #207ce5; 
+    border: 0px solid #207ce5; 
     text-align: center; 
-    width: 60%; 
+    width: 98%; 
     border-radius: 10px; 
     margin: auto;
 }
@@ -48,16 +48,7 @@ main{
     border-color: #207ce5;
 }
 
-#displayList{
-    /* display: grid;
-    justify-content: center; */
-}
-
-.entryText{
-    font-size: 20px;
-}
-
-.entry{
+.todo-item{
     background-color: #ddd;
     border-radius: 5px;
     margin: 20px;
@@ -68,22 +59,8 @@ main{
     text-align: left;
 }
 
-.entry input{
-    display: grid;
-    grid-row: span 1;
-    grid-column: span 1;
-}
-
-.left{
-    display: grid;
-    grid-row: span 1;
-    grid-column: span 1;
-}
-
-.entryText{
-    display: grid;
-    grid-row: span 1;
-    grid-column: span 1;
+.todo-itemText{
+    font-size: 16px;
 }
 
 button {
@@ -94,13 +71,34 @@ button {
     cursor: pointer;
 }
 
+.format {
+    display: grid;
+    grid-row: span 1;
+    grid-column: span 1;
+}
+
+#displayList {}
+
+.todo-input {
+    display: inline-flex;
+}
+
+.fa-level-down-alt {
+    padding-top: 24px;
+}
+
 @media only screen and (min-width:600px){
 
-/* hr{
-    width: 500px;
-}
-.entry{
-    width: 400px;
-} */
+    .todo-ui {
+        border: 1px solid #207ce5; 
+        text-align: center; 
+        width: 60%; 
+        border-radius: 10px; 
+        margin: auto;
+    }
 
+    .todo-itemText{
+        font-size: 20px;
+    }
+    
 }

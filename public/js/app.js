@@ -1,16 +1,16 @@
-// Render //
+// Render To Do List //
 
 const render = function () {
-    runListQuery();
+    runToDoList();
 };
 
-const renderList = function (outputPlace, dataList) {
+const renderToDoList = function (outputPlace, dataList) {
     for (let i = 0; i < dataList.length; i++) {
         const output = $(outputPlace);
-        const temp = $(`<div class='entry'>`);
-        const tempButton = $('<span class=left>');
-        tempButton.append($("<button type='submit' class='delEntry'>").text("Delete"));
-        const tempSpan = $("<span class='entryText'>").text(`${dataList[i].newInput}`);
+        const temp = $(`<div class='todo-item'>`);
+        const tempButton = $(`<span class='format'>`);
+        tempButton.append($("<button type='submit' class='delItem'>").text("Delete"));
+        const tempSpan = $("<span class='todo-itemText'>").text(`${dataList[i].newInput}`);
         temp.append(
             $("<input type='checkbox' class='inputBox'>"),
             tempSpan,
@@ -20,29 +20,29 @@ const renderList = function (outputPlace, dataList) {
     }
 };
 
-const runListQuery = function () {
+const runToDoList = function () {
     $.ajax({ url: "/api/list", method: "GET" }).then(
         function (e) {
-            renderList('#displayList', e);
+            renderToDoList('#displayList', e);
         }
     );
 }
 
 render();
 
-// Submit //
+// Submit To Do Item //
 
-const submitFunc = function () {
-    const newEntry = {
+const submitItem = function () {
+    const newItem = {
         newInput: $('#newInput').val().trim()
     };
-    for (let key in newEntry) {
-        if (newEntry[key] === '') {
+    for (let key in newItem) {
+        if (newItem[key] === '') {
             alert('Please Enter A To Do');
             return;
         }
     }
-    $.ajax({ url: '/api/list', method: 'POST', data: newEntry }).then(
+    $.ajax({ url: '/api/list', method: 'POST', data: newItem }).then(
         function (data) {
             if (data.success) {
                 alert('To Do Added');
@@ -54,28 +54,28 @@ const submitFunc = function () {
     );
 };
 
-$(document).on('click', '#submitButton', submitFunc);
+$(document).on('click', '#submitButton', submitItem);
 
-// Delete //
+// Delete Item //
 
-const deleteFunc = function () {
+const deleteItem = function () {
 
     let parent = $(this).parent().parent().text();
-    const selEntry = {
+    const selItem = {
         newInput: parent.substring(0, parent.length - 6)
     };
 
-    $.ajax({ url: '/api/list', method: 'DELETE', data: selEntry }).then(
+    $.ajax({ url: '/api/list', method: 'DELETE', data: selItem }).then(
         function (data) {
             if (data.success) {
-                alert('Entry Deleted');
+                alert('Item Deleted');
 
             } else {
-                alert("Invalid Entry");
+                alert("Invalid Request");
             }
         }
     );
 
 };
 
-$(document).on('click', '.delEntry', deleteFunc);
+$(document).on('click', '.delItem', deleteItem);
