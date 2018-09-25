@@ -1,0 +1,106 @@
+body {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    height: 100vh;
+    margin: 0px;
+}
+
+header {
+    grid-row: span 1;
+    grid-column: span 1;
+    align-items: center;
+    color: white;   
+    padding: 0 20px;
+
+background: rgb(73,155,234); /* Old browsers */
+background: -moz-linear-gradient(left, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgba(73,155,234,1) 0%,rgba(32,124,229,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(73,155,234,1) 0%,rgba(32,124,229,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#207ce5',GradientType=1 ); /* IE6-9 */
+}
+
+header h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+
+main{
+    color:#000;
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
+    justify-content: center;
+}
+
+.todo-ui {
+    border: 1px solid #207ce5; 
+    text-align: center; 
+    width: 60%; 
+    border-radius: 10px; 
+    margin: auto;
+}
+
+#newInput{
+    border-radius: 20px;
+    font-size: 18px;
+    margin: 20px auto;
+    padding: 10px;
+    border-color: #207ce5;
+}
+
+#displayList{
+    /* display: grid;
+    justify-content: center; */
+}
+
+.entryText{
+    font-size: 20px;
+}
+
+.entry{
+    background-color: #ddd;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 10px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 10% 75% 10%; 
+    text-align: left;
+}
+
+.entry input{
+    display: grid;
+    grid-row: span 1;
+    grid-column: span 1;
+}
+
+.left{
+    display: grid;
+    grid-row: span 1;
+    grid-column: span 1;
+}
+
+.entryText{
+    display: grid;
+    grid-row: span 1;
+    grid-column: span 1;
+}
+
+button {
+    color: #207ce5;
+    font-size: 20px;
+    background: none;
+    border: 0px;
+    cursor: pointer;
+}
+
+@media only screen and (min-width:600px){
+
+/* hr{
+    width: 500px;
+}
+.entry{
+    width: 400px;
+} */
+
+}
